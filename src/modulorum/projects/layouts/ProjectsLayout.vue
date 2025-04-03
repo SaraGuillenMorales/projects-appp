@@ -2,7 +2,7 @@
 
     <SupraMenu></SupraMenu>
 
-<main>
+<main class="flex flex-row">
     <LateralisMenu/>
 
     <router-view></router-view>

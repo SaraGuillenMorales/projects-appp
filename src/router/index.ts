@@ -6,8 +6,16 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'projects',
+      name: 'home',
+      redirect: {name: 'proyects'},
       component: ProjectsLayout,
+      children: [
+        {
+          path: 'proyects',
+          name: 'proyects',
+          component: () => import('@/modulorum/projects/views/ProjectsViews.vue')
+        }
+      ]
     }
   ],
 })
