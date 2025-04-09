@@ -35,7 +35,7 @@ interface Props {
     titulus: string;
     subtitulus: string;
 };
-defineProps<Props> 
+
 
 const emissiones = defineEmits<{
     claudere: [void];
