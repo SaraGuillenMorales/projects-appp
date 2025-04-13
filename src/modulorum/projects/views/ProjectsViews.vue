@@ -56,17 +56,21 @@ subtitulus="Dale un nombre apropiado a tu proyecto"
 </template>
 
 <script lang="ts" setup>
+
 import FabButton from '@/modulorum/commune/components/FabButton.vue';
 import InputModal from '@/modulorum/commune/components/inputModal.vue';
 import PropriumModal from '@/modulorum/commune/components/PropriumModal.vue';
 import AddCircle from '@/modulorum/commune/icons/AddCircle.vue';
 import ModalIcon from '@/modulorum/commune/icons/ModalIcon.vue';
 import { ref } from 'vue';
+import { useProjectsStore } from '../store/projects.store';
 
 
 
 const modalAperta = ref(false);
 const PropriumModalAperta = ref(false);
+
+const projectStore = useProjectsStore();
 
 const cumNovusValorem = (projectNomen: string) => {
 

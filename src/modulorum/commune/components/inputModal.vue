@@ -1,15 +1,14 @@
 <template>
     <dialog id="my_modal_1" class="modal" :open="false">
   <div class="modal-box">
-    <h3 class="text-lg font-bold">{{ titulus }}</h3>
-    <p class="py-4">{{ subtitulus }}</p>
+    
 
     <div class="modal-action flex flex-col">
 
       <form method="dialog" @submit.prevent="submitValorem">
         <input 
         type ="text"
-        :placeholder="placeholder ?? 'Inserte un valor'"
+      
         class="input input-bordered w-full flex-1 input-primary"
         v-model="inputValorem"
         >
