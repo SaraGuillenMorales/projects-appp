@@ -26,7 +26,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
+import { ref, watch } from 'vue';
 
 interface Props {
     aperta: boolean;
@@ -35,19 +35,32 @@ interface Props {
     subtitulus: string;
 };
 
+const props = defineProps<Props>();
 
 const emissiones = defineEmits<{
     claudere: [void];
     valorem: [text:string];
 }>();
 
-const inputValorem = ref('');
+const inputValorem = ref<string>('');
+const inputRef = ref<HTMLInputElement | null>(null);
+
+
+watch(props, ({ aperta }) => {
+  setTimeout(() => {
+  if ( aperta ){
+    inputRef.value?.focus();
+  }}, 300);
+});
+
+
 const submitValorem = () => {
-
-    console.log ({ valorem: inputValorem.value });
-
-if (!inputValorem.value) {
+    
+    if (!inputValorem.value) {
+    inputRef.value?.focus();
+      
     return;
+  }
 }
 
     emissiones('valorem', inputValorem.value.trim() );

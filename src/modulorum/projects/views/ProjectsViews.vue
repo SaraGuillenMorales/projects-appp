@@ -3,10 +3,12 @@
   <table class="table">
 
     <tbody>
-      <tr class="hover:bg-base-300">
+      <tr v-for="(project, index) in projectStore.projectList" :key="project.id" class="hover:bg-base-300">
       
-        <td>Desktop Support Technician</td>
-        <td>Purple</td>
+        <th>{{ index + 1 }}</th>
+        <td>{{ project.nomen }}</td>
+        <td>{{ project.chores.length }}</td>
+        <progress class="progress progress-primary w-56" value="10" max="100"></progress>
 
       </tr>
 
@@ -17,7 +19,7 @@
 <InputModal 
 :aperta="modalAperta" 
 @claudere="modalAperta=false"
-@valorem="cumNovusValorem"
+@valorem="projectStore.addereProject"
 placeholder=" Introduce el nombre del proyecto"
 titulus="Nuevo Proyecto"
 subtitulus="Dale un nombre apropiado a tu proyecto"
@@ -43,7 +45,7 @@ subtitulus="Dale un nombre apropiado a tu proyecto"
 </propium-modal> 
 
 
-<fab-button @click="modalAperta = true">
+<fab-button @click="PropriumModalAperta = true" positione="bottom-left">
   <AddCircle />
 </fab-button>
 
@@ -72,8 +74,6 @@ const PropriumModalAperta = ref(false);
 
 const projectStore = useProjectsStore();
 
-const cumNovusValorem = (projectNomen: string) => {
 
-}
 
 </script>
